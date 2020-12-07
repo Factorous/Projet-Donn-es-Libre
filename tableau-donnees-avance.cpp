@@ -5,6 +5,7 @@
 #include "tableau-donnees-avance.h"
 #include <iostream>
 
+// Auteur : Fabio, confiant pour ce code, c'est un for simple, y'a une valeur return dans tout les cas, et testé
 int chercheIndice(vector<string> t, string valeur) {
     for(int i = 0; i < t.size(); i++){
         if (valeur == t[i]){
@@ -14,6 +15,7 @@ int chercheIndice(vector<string> t, string valeur) {
     return -1;
 }
 
+// Auteur : Fabio, confiant pour ce code, il est testé, et n'est pas plus complexe que cela, 2 for
 vector<string> distinct(vector<vector<string>> data, int j) {
     vector<string> tri;
     
@@ -34,6 +36,7 @@ vector<string> distinct(vector<vector<string>> data, int j) {
     return vec_final;
 }
 
+// Auteur : Fabio, je suis mitigé, je ne suis pas à l'aise avec les istringstream, mais le code à été testé donc je suis confiant, néanmoins je pense qu'il peut y avoir un problème, si le stringstream renvoie des valeurs incompatibles avec le T
 template<class T>
 vector<T> conversion(vector<string> t) {
     vector<T> a_return;
@@ -54,6 +57,7 @@ vector<T> conversion(vector<string> t) {
 }
 
 template<class T>
+// Auteur : Fabio, confiant pour ce code, il est testé, et n'est pas plus complexe que cela, 2 for
 vector<T> groupBy(vector<vector<string>> data, vector<string> valeurs, int j1, int j2) {
     // data = pack de données
     // valeurs = On regroupe en rapport à ces valeurs

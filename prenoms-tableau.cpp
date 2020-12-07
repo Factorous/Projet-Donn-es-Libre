@@ -20,6 +20,7 @@ vector<vector<string>> tableauTest = {
 /** Affiche le contenu d'un tableau de chaînes à deux dimensions
  * @param tableau un tableau à deux dimensions
  **/
+// Auteur : Fabio, confiant pour ce code, c'est un for simple
 void afficheTableau(vector<vector<string>> tableau) {
     for(int i = 0; i < tableau.size(); i++){
         for(int j = 0; j < tableau[i].size(); j++){
@@ -40,26 +41,31 @@ void testAfficheTableau() {
  * @param nb_colonnes le nombre de colonnes du fichier
  * @return un tableau de chaines de caractères à deux dimensions
  **/
+ // Auteur : Fabio
+// Je suis confiant, sauf si le fichier est invalide, alors la table renvoyé est vide et peut faire bug le programme
 vector<vector<string>> litTableau(string nom_fichier, int nb_colonnes) {
     vector<vector<string>> a_return;
     
     ifstream file;
     file.open(nom_fichier);
-    
-    string premierecolonne = "";
-        
-    while(file >> premierecolonne){
-        vector<string> liste = {premierecolonne};
-        string valeur = "";
-        
-        for (int i = 1; i < nb_colonnes; i++){
-            file >> valeur;
-            liste.push_back(valeur);
-        }
-        a_return.push_back(liste);
-    };
 
-    file.close();
+	if (file) {
+		string premierecolonne = "";
+
+		while (file >> premierecolonne) {
+			vector<string> liste = { premierecolonne };
+			string valeur = "";
+
+			for (int i = 1; i < nb_colonnes; i++) {
+				file >> valeur;
+				liste.push_back(valeur);
+			}
+			a_return.push_back(liste);
+		};
+
+		file.close();
+	}
+   
     return a_return;
 }
 
@@ -78,6 +84,7 @@ void testLitTableau() {
  * @param i un numéro de colonne
  * @return la colonne j, représentée par un vecteur de chaines de caractères
  **/
+ // Auteur : Fabio, confiant pour ce code, c'est un for simple + les test plus bas
 vector<string> colonne(vector<vector<string>> t, int j) {
     vector<string> a_return = {};
     
@@ -99,6 +106,7 @@ void testColonne() {
  * @param t, un vecteur de chaines de caractères
  * @return un vecteur d'entiers
  **/
+ // Auteur : Fabio, je suis mitigé, le code marche et les tests sont concluants, mais je ne suis pas à l'aise avec le istringstream
 vector<int> conversionInt(vector<string> t) {
     vector<int> resultat = vector<int>(t.size());
     for(int i =0; i < t.size(); i++) {
@@ -113,6 +121,7 @@ void testConversionInt() {
 }
 
 /** copier la fonction somme déjà écrite **/
+// Auteur : Fabio, confiant pour ce code, c'est un for simple
 int somme(vector<int> t) {
     int somme = 0;
     for(int i = 0; i < t.size(); i++){
@@ -122,6 +131,7 @@ int somme(vector<int> t) {
 }
 
 /** copier la fonction moyenne déjà écrite **/
+// Auteur : Fabio, confiant pour ce code, c'est un for simple
 int moyenne(vector<int> t) {
     int somme = 0;
     int check_count = 0;
@@ -134,6 +144,7 @@ int moyenne(vector<int> t) {
 }
 
 /** copier la fonction indiceMax déjà écrite **/
+// Auteur : Fabio, confiant pour ce code, c'est un for simple
 int indiceMax(vector<int> t) {
     int index_max = 0;
     
@@ -153,6 +164,7 @@ int indiceMax(vector<int> t) {
  * @return un tableau de données ne contenant que les lignes de t telles
  *  que la colonne j ait la valeur correspondant au critère
  **/
+ // Auteur : Fabio, confiant pour ce code, c'est un for simple + il est testé avec les tests plus bas
 vector<vector<string>> selectLignes(vector<vector<string>> t, int j, string valeur) {
     vector<vector<string>> new_vec = {};
     

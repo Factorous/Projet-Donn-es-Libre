@@ -5,7 +5,9 @@
 #include <sstream>
 #include "tableau-lecture-csv.h"
 
-
+// Il a été testé, et j'ai vérifié que la logique était correcte avec le briser_la_glace
+// Je suis assez confiant.
+// Auteur : Fabio
 vector<vector<string>> litTableauCSV(string nom_fichier, int nb_colonnes) {
     vector<vector<string>> a_return;
     
@@ -61,6 +63,9 @@ vector<vector<string>> litTableauCSV(string nom_fichier, int nb_colonnes) {
     return a_return;
 }
 
+// Il a été testé, et j'ai vérifié que la logique était correcte avec le briser_la_glace
+// Je suis assez confiant.
+// Auteur : Fabio
 vector<vector<string>> litTableauCSV(string nom_fichier) {
     vector<vector<string>> a_return;
     
