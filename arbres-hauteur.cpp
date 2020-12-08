@@ -8,11 +8,18 @@
 #include <sstream>
 using namespace std;
 
+
+//Auteur: Victor Robert
+//J'ai moyennement confiance en ce code puisqu'il n'y a pas de test pour savoir si je n'ai pas fait une erreur
+//mais le résultat obtenu ne semble pas être en dehors de ce qu'on pourrait imaginer pour un arbre
 /** Affiche le genre et l'espece de l'arbre le plus haut de Paris
  * parmi les "arbres remarquables"
  **/
 int main() {
     ifstream fichier("donnees/arbresremarquablesparis.csv");
+    if (!fichier){
+    throw runtime_error("le fichier n'a pas pu s'ouvrir");}
+    
     string entete;
     getline(fichier,entete);
     

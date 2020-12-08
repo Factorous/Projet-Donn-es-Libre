@@ -9,20 +9,23 @@
 #include "tableau-lecture-csv.h"
 using namespace std;
 
+
 bool ElementDansTableau(vector<string> t, string el){
-    
     for (int i = 0; i < t.size();i++){
         if (t[i]==el){return true;}
     }
     return false;
 }
 
-
+//Auteur: Victor Robert
+//Je n'ai pas trop confiance en ce code parce qu'il n'y a pas de tests
 /** Affiche le nombre d'arbres du genre Platanus, et le nombre d'espèces
  *  différentes pour ce genre Platanus, parmi les "arbres remarquables" 
  **/
 int main() {
     ifstream fichier("donnees/arbresremarquablesparis.csv");
+    if (!fichier){
+    throw runtime_error("le fichier n'a pas pu s'ouvrir");}
     string entete;
     getline(fichier,entete);
     

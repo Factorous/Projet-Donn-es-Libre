@@ -32,13 +32,13 @@ void testDistinct() {
 }
 
 void testGroupByInt() {
-    //ASSERT(groupByInt(tableauTest, {"M", "F"}, 0, 3) == vector<int>({3, 12}));
-    //ASSERT(groupByInt(tableauTest, {"2011", "2012"}, 1, 3) == vector<int>({11, 4}));
-    //ASSERT(groupByInt(tableauTest, {"Bichette", "Babouche"}, 2, 3) == vector<int>({4, 7}));
+    ASSERT(groupByInt(tableauTest, {"M", "F"}, 0, 3) == vector<int>({3, 12}));
+    ASSERT(groupByInt(tableauTest, {"2011", "2012"}, 1, 3) == vector<int>({11, 4}));
+    ASSERT(groupByInt(tableauTest, {"Bichette", "Babouche"}, 2, 3) == vector<int>({4, 7}));
 }
 
 void testGroupByDouble() {
-    //ASSERT(groupByDouble(tableauTest, {"M", "F"}, 0, 3) == vector<double>({3., 12.}));
+    ASSERT(groupByDouble(tableauTest, {"M", "F"}, 0, 3) == vector<double>({3., 12.}));
 }
 
 void testGroupByTemplate() {
@@ -49,7 +49,7 @@ void testGroupByTemplate() {
 }
 
 void testConversionDouble() {
-    //ASSERT( conversionDouble  ({ "12.1", " 14.13 " }) == vector<double>({ 12.1, 14.13 }) );
+    ASSERT( conversionDouble  ({ "12.1", " 14.13 " }) == vector<double>({ 12.1, 14.13 }) );
 }
 
 void testConversionTemplate() {

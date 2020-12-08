@@ -11,12 +11,15 @@ using namespace std;
 
 
 
-
+//Auteur: Victor Robert
+//J'ai pas trop confiance en ce code à cause du manque de tests.
 /** Affiche l'année avec le plus de naissances et l'année avec le plus de mariages
  **/
 int main() {
     ifstream fichier("donnees/statistiques_de_creation_d_actes_d_etat_civil_par_arrondissement.csv");
-    
+    if (!fichier){
+        throw runtime_error("le fichier n'a pas pu être ouvert");
+    }
     //les années vont de 2004 à 2015
     int anneeDebut = 2004;
     int anneeFin = 2015;
