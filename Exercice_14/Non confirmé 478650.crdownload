@@ -1,0 +1,47 @@
+import matplotlib.pyplot as plt 
+import numpy as np
+
+"""
+Auteur du code: Victor
+J'ai confiance en ce code: si il marchait pas ça se verrait sur le graphique à la fin
+"""
+Liste_info = ["code_zone_geo","zone_geographique","annee","code_indicateur","indicateur","code_type_pers","type_de_personnel","code_taille","taille_dentreprise","secret","non_disponible","etat_des_donnees","valeur"]
+
+nb_colonnes : int = len(Liste_info)
+delimeter = ";"
+FILE = "/Users/victor/Desktop/Informatique impérative/fr-esr-rd-moyens-entreprises-taille.csv"
+
+lignes = []
+
+lignes_dic = []
+TAILLE_ENTREPRISE = [1,2,3,4]
+RECHERCHE_ET_DEV = [0,0,0,0]
+NB_RECHERCHE_ET_DEV = [0,0,0,0]
+
+with open(FILE, "r") as csvfile:
+	lignes = csvfile.readlines()[1:] #On prend les lignes, et on enlève l'entête
+	for ligne in lignes:
+		ligne = ligne.split(delimeter)
+		if ligne[10] == "non":
+			if ligne[7] != "0":
+				if ligne[3] == "dird":
+					try:
+						RECHERCHE_ET_DEV[int(ligne[7])-1] += int(float(ligne[12][:-1]))
+						NB_RECHERCHE_ET_DEV[int(ligne[7])-1] += 1
+					except ValueError:
+						pass
+					
+
+for i in range(len(RECHERCHE_ET_DEV)):
+	RECHERCHE_ET_DEV[i] = RECHERCHE_ET_DEV[i]/NB_RECHERCHE_ET_DEV[i]
+
+coefficients = np.polyfit(TAILLE_ENTREPRISE, RECHERCHE_ET_DEV,2)
+poly = np.poly1d(coefficients)
+
+NV_TAILLE_ENTREPRISE = np.linspace(TAILLE_ENTREPRISE[0],TAILLE_ENTREPRISE[-1])
+NV_RECHERCHE_ET_DEV = poly(NV_TAILLE_ENTREPRISE)
+
+plt.plot(TAILLE_ENTREPRISE,RECHERCHE_ET_DEV,"o",NV_TAILLE_ENTREPRISE,NV_RECHERCHE_ET_DEV)
+plt.xlabel("Taille de l'entreprise")
+plt.ylabel("Investissement en recherche et développement")
+plt.show()
